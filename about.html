@@ -1,0 +1,94 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<title> Login Page </title>  
+<style>   
+Body {  
+    width: 500px;
+    height: 500px;
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: rgb(192, 242, 255);  
+}   
+         #submit{
+            background-color: #4c6faf;   
+       width: 50%;  
+        color: orange;   
+        padding: 10px; 
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer; 
+         } 
+ form {   
+        border: 3px solid #f1f1f1;   
+    }   
+ input[type=text], input[type=password] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid green;   
+        box-sizing: border-box;   
+    }  
+ #submit:hover {   
+        opacity: 0.7;   
+    }   
+  .signup {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+    }   
+        
+     
+ .container {   
+        padding: 25px;   
+        background-color: lightblue;  
+        
+    }   
+    #heading{
+        text-align: center;  
+    }
+
+</style> 
+<script>
+var attempt = 3;
+function validate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if( username == "atul" && password == "thakur"){
+        alert("login successfully");
+        window.location = "https://beginnersbook.com/";
+        return false;
+    }
+    else{
+        attempt --;
+        alert("you have left "+attempt+" attempt;");
+        if(attempt == 0){
+            document.getElementById("username").disabled = true;
+            document.getElementById("password").disabled = true;
+            document.getElementById("submit").disabled = true;
+            return false;
+        }
+    }
+
+}
+</script>  
+</head>    
+<body>    
+    <h1 id="heading"> Student Login </h1> 
+    <form>  
+        <div class="container">   
+            <label>Username : </label>   
+            <input type="text" placeholder="Enter Username" name="username" id="username" required>  
+            <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>  
+            <input type="button" value="login" id="submit" onclick="validate()"/>
+            <br>  
+            <button type="button" class="signup">sign up</button>   
+            Forgot <a href="#"> password? </a>  
+            <p>username= atul
+                password= thakur
+            </p> 
+        </div>   
+    </form>     
+</body>     
+</html>  
